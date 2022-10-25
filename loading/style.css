@@ -1,0 +1,80 @@
+:root {
+    --size: 50px;
+    --animationTime: 10s;
+    --color: rgb(137, 19, 148);
+    --thick: 3px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@keyframes rotate {
+    form {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.square,
+.square2 {
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    border-radius: 50%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    animation: rotate var(--animationTime) linear 0s infinite;
+}
+
+.square:last-child {
+    animation: rotate var(--animationTime) linear 0s infinite reverse;
+}
+
+.box {
+    display: grid;
+}
+
+.tr1,
+.tr2,
+.tr3,
+.tr4 {
+    width: 100%;
+    height: var(--thick);
+    background: var(--color);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% - 1px);
+}
+
+.tr2 {
+    transform: rotate(90deg);
+}
+
+.tr3 {
+    transform: rotate(45deg);
+}
+
+.tr4 {
+    transform: rotate(135deg);
+}
